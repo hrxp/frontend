@@ -1,6 +1,6 @@
-// import all sass files here
-// run npm start sass:compile to compile to the public/stylesheet folder
-// this file is imported to App.js
+// import all sass files here.
+// run npm start sass:compile to compile to the public/stylesheet folder.
+// this file is imported to App.js.
 
 //Abstracts
 @import "Abstracts/Mixins";
@@ -8,5 +8,3 @@
 
 //Components
 @import "Components/Home";
-@import "Components/Chat";
-@import "Components/SideMenu"
