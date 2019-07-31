@@ -1,1 +1,1 @@
-/* TODO: Add tests specific to component. */
+// TODO: Add tests.
