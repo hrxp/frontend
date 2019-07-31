@@ -1,13 +1,13 @@
 import React from "react";
+import Channels from "../../components/Channels/Channels";
 
-const Home = () => {
+export const Home = () => {
   return (
     <div>
       <header>
-        <h1>Hello World!</h1>
+        <h1>HRX Portal</h1>
       </header>
+      <Channels />
     </div>
   );
 };
-
-export default Home;
