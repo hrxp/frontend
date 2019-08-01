@@ -1,18 +1,18 @@
 import React from "react";
 import { fetchChannelMessages } from "../../utils/fetcher";
 
-export const Messages = ({ currentChannel }) => {
-  let messages = fetchChannelMessages(currentChannel);
+const Messages = ({ currentChannel }) => {
+  let testMessages = ["hi", "hello"];
+  // let messages = fetchChannelMessages();    // TODO: Wired up api fetcher to update data
 
   return (
     <div>
       <h1>{currentChannel}</h1>
-      <p>Lorem ipsum</p>
-      <div>
-        {messages.map(message => {
-          return <li>{message}</li>;
-        })}
-      </div>
+      {testMessages.map(message => {
+        return <div>{message}</div>;
+      })}
     </div>
   );
 };
+
+export default Messages;

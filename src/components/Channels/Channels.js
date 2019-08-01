@@ -6,32 +6,34 @@ class Channels extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      channels: [],
+      channels: ["test", "test2"],
       currentChannel: "General",
       error: null
     };
   }
 
-  componentDidMount() {
-    let data = fetchChannels();
-    this.setState({ channels: data, currentChannel: "General" });
-  }
+  // TODO: Wired up api fetcher to update data
+
+  // componentDidMount() {
+  //   // let data = fetchChannels();
+  //   this.setState({ channels: data });
+  // }
 
   handleClick = e => {
     e.preventDefault();
-    this.setState({ currentChannel: e });
+    this.setState({ currentChannel: e.target.value });
   };
 
   render() {
     return (
       <div>
-        <h1>{this.state.currentChannel}</h1>
         <div>
-          {this.state.channels.map(channel => {
-            return <button onClick={this.handleClick} />;
-          })}
+          {this.state.channels.map(channel => (
+            <button onClick={this.handleClick} value={channel}>
+              {channel}
+            </button>
+          ))}
         </div>
-
         <Messages currentChannel={this.state.currentChannel} />
       </div>
     );
