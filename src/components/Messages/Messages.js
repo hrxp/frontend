@@ -1,9 +1,9 @@
-import React from "react";
-import { fetchChannelMessages } from "../../utils/fetcher";
+import React from 'react';
+import { fetchChannelMessages } from '../../utils/fetcher';
 
 const Messages = ({ currentChannel }) => {
-  let testMessages = ["hi", "hello"];
-  // let messages = fetchChannelMessages();    // TODO: Wired up api fetcher to update data
+  let testMessages = ['Message1', 'Message2'];
+  // let messages = fetchChannelMessages(); // TODO: API server needs to add messages in data model
 
   return (
     <div>
