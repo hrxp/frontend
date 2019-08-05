@@ -1,0 +1,13 @@
+.sidebar {
+	background-color: $color-primary;
+	width: 20em;
+	height: 100vh;
+	padding: 1em;
+
+	&--header {
+		margin: 0 0 1em;
+		background-color: inherit;
+		color: $color-white;
+	}
+}
+

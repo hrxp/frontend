@@ -1,11 +1,13 @@
 import React from "react";
+import Channels from "../../components/Channels/Channels";
 
 const Home = () => {
   return (
-    <div>
-      <header>
-        <h1>Hello World!</h1>
-      </header>
+    <div className="home">
+      <div className="sidebar">
+        <h2 className="sidebar--header">HRX Portal</h2>
+        <Channels />
+      </div>
     </div>
   );
 };
