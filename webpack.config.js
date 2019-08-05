@@ -1,30 +1,25 @@
-var path = require('path');
-var SRC_DIR = path.join(__dirname, '/src');
-var DIST_DIR = path.join(__dirname, '/public');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-  entry: `${SRC_DIR}/js/index.js`,
+  // devtool: 'eval',
+  entry: [
+    // activate HMR for React
+    'webpack-hot-middleware/client',
+    './src/index',
+  ],
   output: {
     filename: 'bundle.js',
-    path: DIST_DIR
+    publicPath: '/',
   },
+  plugins: [
+    // OccurenceOrderPlugin is needed for webpack 1.x only
+    // new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['env', 'react', 'es2015', 'stage-0'],
-          env: {
-            "development": {
-              presets: ['react-hmre']
-            }
-          },
-          plugins: ["transform-class-properties", "transform-decorators-legacy", "@babel/plugin-transform-regenerator"]
-        }
-      }
-    ]
+    rules: [{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }]
   }
 };
