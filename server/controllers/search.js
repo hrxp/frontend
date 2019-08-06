@@ -44,7 +44,6 @@ exports.search = catcher(async function search(req, res, next) {
         return isMatch;
       });
 
-
       if (filtered.length) {
         const messages = filtered.sort((a,b) => a.ts - b.ts).slice(-end);
         results.push({ type: 'search', channel: channel.name, messages, count: filtered.length });

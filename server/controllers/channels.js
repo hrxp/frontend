@@ -36,7 +36,6 @@ exports.get = catcher(async function getChannel(req, res, next) {
 
   if (user && ts) {
 
-
     const i = channelMessages.findIndex(m => m.ts === ts && (user === 'undefined' || m.user === user));
 
     selectedMessage = channelMessages[i];
@@ -44,12 +43,14 @@ exports.get = catcher(async function getChannel(req, res, next) {
     const adjustedAfter = after ? i + 1 + PAGE_SIZE : i + 1;
     const adjustedBefore = before ? Math.max(0, i - PAGE_SIZE) : i;
 
-    if (i > -1) messages = channelMessages.slice(adjustedBefore, adjustedAfter);
+    if (i > -1) {
+      messages = channelMessages.slice(adjustedBefore, adjustedAfter);
+    }
 
   } else {
     messages = channelMessages.slice(0, PAGE_SIZE);
   }
-
+  
   messages.forEach(m => m.text = slackToEmoji(m.text));
 
   res.send({ selectedMessage, messages });
