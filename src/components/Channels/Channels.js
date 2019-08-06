@@ -33,7 +33,7 @@ class Channels extends React.Component {
         <h3 className="channels--header">Channels</h3>
         <div className="channels--list">
           {this.state.channels.map(channel => (
-            <button className="channels--portal" onClick={this.handleClick} value={channel}>
+            <button key={channel} className="channels--portal" onClick={this.handleClick} value={channel}>
               {`# ${channel}`}
             </button>
           ))}
