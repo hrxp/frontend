@@ -1,6 +1,5 @@
 import React from 'react';
 import { fetchChannels } from '../../utils/fetcher';
-import Messages from '../Messages/Messages';
 
 class Channels extends React.Component {
   constructor(props) {

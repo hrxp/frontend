@@ -1,13 +1,12 @@
 import React from "react";
-import Channels from "../../components/Channels/Channels";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Chat from "../../components/Chat/Chat";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home">
-      <div className="sidebar">
-        <h2 className="sidebar--header">HRX Portal</h2>
-        <Channels />
-      </div>
+      <Sidebar />
+      <Chat />
     </div>
   );
 };

@@ -1,0 +1,7 @@
+.chat {
+	display: inline-block;
+	width: 80vw;
+	&--header {
+		border-bottom: 2px solid grey;
+	}
+}

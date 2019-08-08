@@ -1,4 +1,5 @@
 .sidebar {
+	display: inline-block;
 	background-color: $color-primary;
 	width: 20em;
 	height: 100vh;
@@ -9,5 +10,14 @@
 		background-color: inherit;
 		color: $color-white;
 	}
+
+	&--username {
+		height: 2em;
+		color: rgba($color-white, 0.5);
+	}
+}
+
+.login {
+	float: right;
 }
 

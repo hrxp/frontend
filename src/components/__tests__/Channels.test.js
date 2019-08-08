@@ -12,5 +12,4 @@ describe('Channel tests', () => {
     expect(wrapper.find('.channels--list')).toBeDefined();
     expect(wrapper.find('.channels--portal')).toHaveLength(channels.length);
 	});
-
 });
