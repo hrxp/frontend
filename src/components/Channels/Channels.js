@@ -6,33 +6,25 @@ class Channels extends React.Component {
     super(props);
     this.state = {
       channels: ['general', 'hrxp-_general', 'hrxp-ui', 'random'],
-      currentChannel: 'general',
       error: null
     };
   }
 
   componentDidMount() {
-    let channels = [];
-    fetchChannels()
-      .then(data => {
-        data.forEach(channel => channels.push(channel.topic));
-      })
-      .then(() => this.setState({ channels: channels }));
+    // let channels = [];
+    // fetchChannels().then(data => {
+    //   data.forEach(channel => channels.push(channel.topic));
+    // }).then(() => this.setState({ channels: channels }));
   }
 
-  handleClick = e => {
-    e.preventDefault();
-    this.setState({ currentChannel: e.target.value });
-  };
-
-
   render() {
+    console.log(this.props.currentChannel)
     return (
       <div className="channels">
-        <h3 className="channels--header">Channels</h3>
-        <div className="channels--list">
+        <h3 className="channels__header">Channels</h3>
+        <div className="channels__list">
           {this.state.channels.map(channel => (
-            <button key={channel} className="channels--portal" onClick={this.handleClick} value={channel}>
+            <button key={channel} className={`channels__portal ${this.props.currentChannel === channel ? 'channels__portal--focus' : ''}`} onClick={() => this.props.changeChannel(channel)} value={channel}>
               {`# ${channel}`}
             </button>
           ))}

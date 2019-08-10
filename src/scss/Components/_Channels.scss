@@ -2,22 +2,26 @@
 	background-color: inherit;
 	height: 85%;
 
-	&--header {
+	&__header {
 		background-color: inherit;
 		color: rgba($color-white, 0.5);
 	}
 
-	&--list {
+	&__list {
 		background-color: inherit;
 	}
 
-	&--portal {
+	&__portal {
 		background-color: inherit;
 		color: rgba($color-white, 0.5);
 		display: block;
 		border: none;
 		font-size: .75em;
 		margin-bottom: .5em;
+
+		&--focus {
+			color: $color-white;
+		}
 
 		&:hover {
 			color: $color-white;

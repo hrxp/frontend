@@ -1,17 +1,19 @@
 import React from "react";
 import Channels from "../Channels/Channels";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
 	return (
 		<div className="sidebar">
-			<h2 className="sidebar--header">
+			<h2 className="sidebar__header">
 				HRX Portal
-				<button className="login">Login</button>
 			</h2>
-			<div className="sidebar--username">
-				<span className="user-online">&middot;</span> username here
+			<div className="sidebar__username">
+				<span className="user-online">&middot;</span> {props.name}
 			</div>
-			<Channels />
+			<Channels 
+				currentChannel={props.currentChannel}
+				changeChannel={props.changeChannel}
+			/>
 		</div>
 	)
 }

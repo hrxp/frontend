@@ -5,13 +5,13 @@
 	height: 100vh;
 	padding: 1em;
 
-	&--header {
+	&__header {
 		margin: 0 0 1em;
 		background-color: inherit;
 		color: $color-white;
 	}
 
-	&--username {
+	&__username {
 		height: 2em;
 		color: rgba($color-white, 0.5);
 	}
