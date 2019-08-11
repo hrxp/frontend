@@ -1,4 +1,18 @@
-* {
-  color: white;
-  background-color: purple;
+.home {
+  background-color: $color-white;
+}
+
+.home__main {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+}
+
+.user-online {
+  color: $color-useronline;
+  text-align: center;
 }

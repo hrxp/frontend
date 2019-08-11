@@ -1,0 +1,42 @@
+.login {
+	height: 100vw;
+	width: 100vw;
+	position: absolute;
+	z-index: 1;
+	color: white;
+	background-color: $color-primary;
+	transition: .5s linear;
+
+	&--slide {
+		transform: translate(-100%);
+	}
+
+	&__header {
+		text-align: center;
+	}
+
+	&__container {
+		position: absolute;
+		top: 33%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 1.5em;
+	}
+
+	&__input {
+		border-radius: 20px;
+		height: 50px;
+		width: 10em;
+		font-size: 2em;
+	}
+
+	&__submit {
+		display: block;
+		margin: 10px auto;
+		height: 20px;
+	}
+
+	*:focus {
+		outline: 0;
+	}
+}
