@@ -10,12 +10,14 @@ interface for consuming the API.
 1. Install the dependencies.
     `npm i`
 
-2. Generate a Slack export and unzip the contents to the `back` directory.
+2. Create a `slack_backup` directory in the root directory.
 
-3. Run webpack
+3. Generate a Slack export and unzip the contents to the `slack_backup` directory.
+
+4. Run webpack
     `npm run start:webpack`
 
-3. Run the dev server.
+5. Run the dev server.
     `npm start:dev`
 
-4. Open `localhost:${PORT}` in your browser.
+6. Open `localhost:${PORT}` in your browser.
