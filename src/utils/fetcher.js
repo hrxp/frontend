@@ -4,6 +4,7 @@ const fetchChannels = () => {
   return axios
     .get('http://localhost:3000/channels') // Todo: Setup dev and prod urls
     .then(response => {
+      console.log(response.data);
       return response.data;
     })
     .catch(error => {

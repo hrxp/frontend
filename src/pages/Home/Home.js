@@ -6,10 +6,10 @@ import Login from "../../components/Login/Login"
 
 class Home extends Component {
   state = {
-    loggedIn: false,
+    loggedIn: true,
     nameInput: '',
     name: '',
-    currentChannel: 'general'
+    currentChannel: null
   }
 
   submitName(e) {
@@ -49,7 +49,7 @@ class Home extends Component {
               currentChannel={this.state.currentChannel}
               changeChannel={this.changeChannel.bind(this)}
             />
-            <Chat channel={this.state.currentChannel}/>
+            {!this.state.currentChannel || <Chat currentChannel={this.state.currentChannel}/>}
           </div>
         } 
       </div>
