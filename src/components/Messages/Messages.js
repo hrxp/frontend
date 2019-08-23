@@ -48,28 +48,3 @@ class Messages extends React.Component {
   }
 }
 export default Messages;
-
-// const Messages = ({ channel }) => {
-//   let messages = [];
-//   const loadMessages = () => {
-//     fetchChannelMessages(channel).then(data => {
-//       data.forEach(message => messages.push(message));
-//     });
-//   };
-
-//   return (
-//     <div className="chat">
-//       <div className="chat__header">
-//         <h1>#{channel}</h1>
-//       </div>
-//       <div className="messages">
-//         {loadMessages()}
-//         {messages.map(message => {
-//           return <Message message={message} />;
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Messages;
