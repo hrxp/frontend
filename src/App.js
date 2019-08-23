@@ -1,9 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Login from '../src/pages/Login/Login';
-import NotFoundPage from '../src/pages/NotFoundPage/NotFoundPage';
-import SlackOAuthHandler from './pages/SlackOAuthHandler/SlackOAuthHandler'
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Login from "../src/pages/Login/Login";
+import NotFoundPage from "../src/pages/NotFoundPage/NotFoundPage";
+import SlackOAuthHandler from "./pages/SlackOAuthHandler/SlackOAuthHandler"
+
 import './scss/Main.scss';
 
 const App = () => {
