@@ -1,5 +1,16 @@
 import axios from 'axios';
 
+axios.interceptors.response.use(null, function (error) {
+  if(error.response.status === 401) {
+    // API auth error
+    window.location.href = "/login"
+    console.warn("Unauthorized API call detected; redirecting to login")
+    return
+  }
+
+  return error
+});
+
 const fetchChannels = () => {
   return axios
     .get('http://localhost:3000/channels') // Todo: Setup dev and prod urls
