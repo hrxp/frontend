@@ -1,35 +1,35 @@
 .channels {
-	background-color: inherit;
-	height: 85%;
+  background-color: inherit;
+  height: 85%;
 
-	&__header {
-		background-color: inherit;
-		color: rgba($color-white, 0.5);
-	}
+  &__header {
+    background-color: inherit;
+    color: rgba($color-white, 0.5);
+  }
 
-	&__list {
-		background-color: inherit;
-	}
+  &__list {
+    background-color: inherit;
+  }
 
-	&__portal {
-		background-color: inherit;
-		color: rgba($color-white, 0.5);
-		display: block;
-		border: none;
-		font-size: .75em;
-		margin-bottom: .5em;
+  &__portal {
+    background-color: inherit;
+    color: rgba($color-white, 0.5);
+    display: block;
+    border: none;
+    font-size: 0.75em;
+    margin-bottom: 0.5em;
 
-		&--focus {
-			color: $color-white;
-		}
+    &--focus {
+      color: $color-white;
+    }
 
-		&:hover {
-			color: $color-white;
-			cursor: pointer;
-		}
+    &:hover {
+      color: $color-white;
+      cursor: pointer;
+    }
 
-		&:focus {
-			outline: 0;
-		}
-	}
+    &:focus {
+      outline: 0;
+    }
+  }
 }
