@@ -9,7 +9,7 @@ export default class SlackOAuthHandler extends React.Component {
 
     try {
       const res = await axios.get(
-        `http://localhost:3001/auth/access_token?code=${oauthCode}`
+        `${process.env.REACT_APP_API_BASE_URL}/auth/access_token?code=${oauthCode}`
       );
       localStorage.setItem("hrxp_jwt", res.data);
       window.location.href = "/";
