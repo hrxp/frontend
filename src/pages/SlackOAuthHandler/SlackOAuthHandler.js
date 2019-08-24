@@ -8,10 +8,15 @@ export default class SlackOAuthHandler extends React.Component {
     const oauthCode = currentUrl.searchParams.get("code");
 
     try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/auth/access_token?code=${oauthCode}`
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/auth/access_token`,
+        {
+          code: oauthCode,
+        }
       );
-      localStorage.setItem("hrxp_jwt", res.data);
+      if (res.data) {
+        localStorage.setItem("hrxp_jwt", res.data);
+      }
       window.location.href = "/";
     } catch (e) {
       console.error("Axios error", e);
@@ -20,10 +25,6 @@ export default class SlackOAuthHandler extends React.Component {
   }
 
   render() {
-    return (
-      <h3>
-        Exchanging your Slack login for an access token...
-      </h3>
-    );
+    return <h3>Exchanging your Slack login for an access token...</h3>;
   }
 }
