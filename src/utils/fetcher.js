@@ -1,9 +1,10 @@
 import axios from "axios";
 
 axios.interceptors.request.use(function(config) {
-  config.headers.common.Authorization = `Bearer ${localStorage.getItem(
-    "hrxp_jwt"
-  )}`;
+  const token = localStorage.getItem("hrxp_jwt");
+  if (token) {
+    config.headers.common.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
 
