@@ -1,19 +1,21 @@
 import axios from "axios";
 
-axios.interceptors.request.use(function (config) {
-  config.headers.common.Authorization = `Bearer ${localStorage.getItem("hrxp_jwt")}`
-  return config
+axios.interceptors.request.use(function(config) {
+  config.headers.common.Authorization = `Bearer ${localStorage.getItem(
+    "hrxp_jwt"
+  )}`;
+  return config;
 });
 
-axios.interceptors.response.use(null, function (error) {
-  if(error.response.status === 401) {
+axios.interceptors.response.use(null, function(error) {
+  if (error.response.status === 401) {
     // API auth error
-    window.location.href = "/login"
-    console.warn("Unauthorized API call detected; redirecting to login")
-    return
+    window.location.href = "/login";
+    console.warn("Unauthorized API call detected; redirecting to login");
+    return;
   }
 
-  return error
+  return error;
 });
 
 const fetchChannels = () => {
