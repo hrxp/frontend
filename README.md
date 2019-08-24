@@ -1,6 +1,10 @@
 # HRX Portal
 
-## TODO:
+## Getting Started
+
+- Run `npm i`
+- Run `cp .env.example .env`, then open `.env` and edit the values as needed
+- Run `npm run dev`
 
 ## Environment variables
 
