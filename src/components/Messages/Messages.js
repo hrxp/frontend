@@ -1,6 +1,6 @@
-import React from 'react';
-import { fetchChannelMessages } from '../../utils/fetcher';
-import Message from '../Message/Message';
+import React from "react";
+import { fetchChannelMessages } from "../../utils/fetcher";
+import Message from "../Message/Message";
 
 class Messages extends React.Component {
   constructor({ props }) {

@@ -1,10 +1,10 @@
 // Todo: Refactor with Auth. Current code is a placeholder that was moved from old login component
 
-import React from 'react';
+import React from "react";
 
 const Login = props => {
   return (
-    <div className={`login ${props.loggedIn ? 'login--slide' : ''}`}>
+    <div className={`login ${props.loggedIn ? "login--slide" : ""}`}>
       <div className="login__container">
         <h1 className="login__header">Welcome to HRX</h1>
         <form onSubmit={props.submitName}>

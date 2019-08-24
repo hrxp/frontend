@@ -1,15 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
 const fetchChannels = () => {
   return (
     axios
       // .get('http://localhost:3000/channels') // Todo: Setup dev and prod urls
-      .get('https://hrx-portal-api-dev.herokuapp.com/channels')
+      .get("https://hrx-portal-api-dev.herokuapp.com/channels")
       .then(response => {
         return response.data;
       })
       .catch(error => {
-        console.log(error, 'Fetch channels failed!');
+        console.log(error, "Fetch channels failed!");
       })
   );
 };
@@ -22,11 +22,11 @@ const fetchChannelMessages = channelName => {
         `https://hrx-portal-api-dev.herokuapp.com/channels/${channelName}/messages`
       )
       .then(response => {
-        console.log(response, 'Fetch messages success!');
+        console.log(response, "Fetch messages success!");
         return response.data;
       })
       .catch(error => {
-        console.log(error, 'Fetch messages failed!');
+        console.log(error, "Fetch messages failed!");
       })
   );
 };

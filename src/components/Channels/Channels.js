@@ -1,11 +1,11 @@
-import React from 'react';
-import { fetchChannels } from '../../utils/fetcher';
+import React from "react";
+import { fetchChannels } from "../../utils/fetcher";
 
 class Channels extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      channels: ['general', 'random', 'whos-hiring'],
+      channels: ["general", "random", "whos-hiring"],
       error: null
     };
   }
@@ -29,8 +29,8 @@ class Channels extends React.Component {
               key={channel}
               className={`channels__portal ${
                 this.props.currentChannel === channel
-                  ? 'channels__portal--focus'
-                  : ''
+                  ? "channels__portal--focus"
+                  : ""
               }`}
               onClick={() => this.props.changeChannel(channel)}
               value={channel}

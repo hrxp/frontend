@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import Chat from '../../components/Chat/Chat';
+import React, { Component } from "react";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Chat from "../../components/Chat/Chat";
 
 class Home extends Component {
   state = {
-    nameInput: '',
-    currentChannel: 'general'
+    nameInput: "",
+    currentChannel: "general"
   };
 
   changeChannel = channel => {
