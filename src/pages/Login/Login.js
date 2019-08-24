@@ -1,5 +1,3 @@
-// Todo: Refactor with Auth. Current code is a placeholder that was moved from old login component
-
 import React from "react";
 
 const Login = props => {
@@ -7,15 +5,11 @@ const Login = props => {
     <div className={`login ${props.loggedIn ? "login--slide" : ""}`}>
       <div className="login__container">
         <h1 className="login__header">Welcome to HRX</h1>
-        <form onSubmit={props.submitName}>
-          <input
-            onChange={props.changeName}
-            type="text"
-            placeholder="enter your name"
-            className="login__input"
-          />
-          <input type="submit" value="Submit" className="login__submit" />
-        </form>
+        <a
+          href={`https://hackreactorx.slack.com/oauth/authorize?scope=identity.basic%20identity.avatar%20identity.email%20identity.team&client_id=${process.env.REACT_APP_SLACK_LOGIN_CLIENT_ID}`}
+        >
+          <img src="https://api.slack.com/img/sign_in_with_slack.png" />
+        </a>
       </div>
     </div>
   );
