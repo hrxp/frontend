@@ -5,16 +5,14 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: ['mesage 1', 'awdoijawdji']
+      messages: ['messege 1', 'message 2']
     }
   }
-  // let messages = fetchChannelMessages(); // TODO: API server needs to add messages in data model
+
   componentDidMount() {
     let messages = [];
-    // console.log(this.props.currentChannel.id)
     fetchChannelMessages('testChannel2').then(data => {
-      console.log(data);
-      // dataFirstTen.forEach(channel => messages.push(channel));
+      messages.forEach(message => messages.push(message));
     }).then(() => this.setState({ messages: messages }));
   }
 
@@ -22,7 +20,11 @@ class Chat extends Component {
     return (
       <div className="chat">
         <div className="chat__header">
-          <h1>#{this.props.currentChannel.name}</h1>
+          <h1 className="chat__header__title">#{this.props.currentChannel.name}</h1>
+          <p className="chat__header__topic">
+            {this.props.currentChannel.topic.substring(0, 60) + ' ...'}
+          </p>
+          <p className="chat__header__full-topic">{this.props.currentChannel.topic}</p>
         </div>
         <div className="messages">
           {

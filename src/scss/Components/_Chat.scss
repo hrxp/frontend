@@ -4,5 +4,14 @@
 	&__header {
 		padding: 1em 1em;
 		border-bottom: 2px solid rgba(grey, 0.2);
+		height: 6em;
+		&__topic {
+			color: rgba(black, 0.4);
+			height: 1em;
+		}
+		&__full-topic {
+			height: auto;
+			position: absolute;
+		}
 	}
 }

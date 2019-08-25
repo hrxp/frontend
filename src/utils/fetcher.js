@@ -14,7 +14,7 @@ const fetchChannels = () => {
 
 const fetchChannelMessages = channelId => {
   return axios
-    .get(`http://localhost:3000/${channelId}/messages`) // Todo: Setup dev and prod urls
+    .get(`http://localhost:3000/channels/${channelId}/messages`) // Todo: Setup dev and prod urls
     .then(response => {
       console.log(response, 'Fetch messages success!');
       return response.data;
