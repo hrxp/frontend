@@ -29,7 +29,7 @@ class Channels extends Component {
         <div className="channels__list">
           {!this.props.currentChannel || this.state.channels.map(channel => (
             <button 
-              key={channel} 
+              key={channel.id} 
               className={`channels__portal ${this.props.currentChannel.name === channel.name ? 'channels__portal--focus' : ''}`} 
               onClick={() => this.props.changeChannel(channel)} value={channel.name}
             >
