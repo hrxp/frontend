@@ -1,5 +1,6 @@
 import React from "react";
 import { fetchChannels } from "../../utils/fetcher";
+import tempChannels from '../../utils/tempChannels';
 
 class Channels extends React.Component {
   constructor(props) {
@@ -12,11 +13,16 @@ class Channels extends React.Component {
 
   componentDidMount() {
     let channels = [];
-    fetchChannels()
-      .then(data => {
-        data.forEach(channel => channels.push(channel.name));
-      })
-      .then(() => this.setState({ channels: channels }));
+    tempChannels.forEach(channel => {
+      channels.push(channel.name)
+    });
+    return this.setState({ channels: channels });
+
+    // fetchChannels()
+    //   .then(data => {
+    //     data.forEach(channel => channels.push(channel.name));
+    //   })
+    //   .then(() => this.setState({ channels: channels }));
   }
 
   render() {
@@ -31,7 +37,7 @@ class Channels extends React.Component {
                 this.props.currentChannel === channel
                   ? "channels__portal--focus"
                   : ""
-              }`}
+                }`}
               onClick={() => this.props.changeChannel(channel)}
               value={channel}
             >
