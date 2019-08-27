@@ -1,37 +1,15 @@
 const tempChannels = [
-  {
-    name: 'general',
-  },
-  {
-    name: 'invites',
-  },
-  {
-    name: 'whos-hiring',
-  },
-  {
-    name: 'random',
-  },
-  {
-    name: 'react',
-  },
-  {
-    name: 'events',
-  },
-  {
-    name: 'careers-advice',
-  },
-  {
-    name: 'la-meetups',
-  },
-  {
-    name: 'sf-meetups',
-  },
-  {
-    name: 'surviving-the-hustle',
-  },
-  {
-    name: 'meta',
-  },
+  'general',
+  'invites',
+  'whos-hiring',
+  'random',
+  'react',
+  'events',
+  'careers-advice',
+  'la-meetups',
+  'sf-meetups',
+  'surviving-the-hustle',
+  'meta'
 ]
 
 export default tempChannels;
