@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchChannelMessages } from "../../utils/fetcher";
 import Message from "../Message/Message";
+import tempMsgs from '../../utils/tempMsgs';
 
 class Messages extends React.Component {
   constructor({ props }) {
@@ -22,11 +23,17 @@ class Messages extends React.Component {
 
   loadMessages = () => {
     let messages = [];
-    return fetchChannelMessages(this.props.channel)
-      .then(data => {
-        data.forEach(message => messages.push(message));
-      })
-      .then(() => this.setState({ messages: messages }));
+    tempMsgs.forEach(msg => {
+      if (msg.channelName === this.props.channel) {
+        messages.push(msg);
+      }
+    })
+    return this.setState({ messages: messages });
+    // return fetchChannelMessages(this.props.channel)
+    //   .then(data => {
+    //     data.forEach(message => messages.push(message));
+    //   })
+    //   .then(() => this.setState({ messages: messages }));
   };
 
   render() {
@@ -38,7 +45,7 @@ class Messages extends React.Component {
         <div className="messages">
           {this.state.messages.map((message, i) => {
             // currently just mapping first 10 messages for a quicker fetch
-            if (i <= 10) {
+            if (i <= 20) {
               return <Message message={message} />;
             }
           })}
