@@ -3,17 +3,20 @@ import React from "react";
 // Note: do we want to display realName? or at least store it? Also, might have to refactor component to a class to handle user obj data states
 
 const Message = ({ message }) => {
-  console.log('msg data', message)
   const { displayName, profilePhoto } = message.createdBy;
   const { ts, text } = message;
   return (
-    <div>
-      <div>Time: {ts}</div>
-      <div>Photo: {profilePhoto}</div>
-      <div>User: {displayName}</div>
-      <div>Msg: {text}</div>
-      <div>-------------------</div>
-    </div>
+    <React.Fragment>
+      <img src={profilePhoto} 
+         className="message__photo"
+         alt="pfp"
+      />
+      <div className="message__info">
+        <div className="message__info__user">{displayName} </div>
+        <div className="message__info__time">{ts}</div>
+      </div>
+      <div className="message__text">Msg: {text}</div>
+    </React.Fragment>
   );
 };
 

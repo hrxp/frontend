@@ -6,21 +6,28 @@ class Channels extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      channels: ["general", "random", "whos-hiring"],
-      error: null
+      channels: [],
     };
   }
 
   componentDidMount() {
     let channels = [...tempChannels];
-    return this.setState({ channels: channels });
+    this.setState({ channels: channels });
+
+    if (!this.props.currentChannel) {
+      this.props.changeChannel(channels[0]);
+    }
 
     // fetchChannels()
     //   .then(data => {
     //     data.forEach(channel => channels.push(channel.name));
     //   })
     //   .then(() => this.setState({ channels: channels }));
+
+    // if (this.props.)
   }
+
+
 
   render() {
     return (
@@ -29,16 +36,16 @@ class Channels extends React.Component {
         <div className="channels__list">
           {this.state.channels.map(channel => (
             <button
-              key={channel}
+              key={channel._id}
               className={`channels__portal ${
                 this.props.currentChannel === channel
                   ? "channels__portal--focus"
                   : ""
                 }`}
               onClick={() => this.props.changeChannel(channel)}
-              value={channel}
+              value={channel.name}
             >
-              {`# ${channel}`}
+              {`# ${channel.name}`}
             </button>
           ))}
         </div>

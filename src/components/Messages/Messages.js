@@ -16,7 +16,7 @@ class Messages extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.channel !== prevProps.channel) {
+    if (this.props.currentChannel.name !== prevProps.currentChannel.name) {
       this.loadMessages();
     }
   }
@@ -24,7 +24,7 @@ class Messages extends React.Component {
   loadMessages = () => {
     let messages = [];
     tempMsgs.forEach(msg => {
-      if (msg.channelName === this.props.channel) {
+      if (msg.channelName === this.props.currentChannel.name) {
         messages.push(msg);
       }
     })
@@ -38,19 +38,18 @@ class Messages extends React.Component {
 
   render() {
     return (
-      <div className="chat">
-        <div className="chat__header">
-          <h1>#{this.props.channel}</h1>
-        </div>
-        <div className="messages">
-          {this.state.messages.map((message, i) => {
-            // currently just mapping first 10 messages for a quicker fetch
-            if (i <= 20) {
-              return <Message message={message} />;
-            }
-          })}
-        </div>
-      </div>
+      <React.Fragment>
+        {this.state.messages.map((message, i) => {
+          // currently just mapping first 10 messages for a quicker fetch
+          if (i <= 20) {
+            return (
+             <div key={message.createdBy._id} className='message'> 
+               <Message message={message} />
+             </div>
+            )
+          }
+        })}
+      </React.Fragment>
     );
   }
 }
