@@ -1,0 +1,32 @@
+.message {
+	display: grid;
+	grid-template-columns: 10% 90%;
+	grid-template-rows: 10% 90%;
+	// border-bottom: 2px solid rgba(grey, 0.2);
+	padding: 10px;
+	&:hover {
+		background-color: rgb(240, 240, 240);
+	}
+	&__photo {
+		grid-column-start: 1;
+		width: 42px;
+		height: 42px;
+	}
+	&__info {
+		display: flex;
+		&__user {
+			font-weight: bold;
+		}
+		&__time {
+			margin-left: 10px;
+			color: grey;
+			font-size: .75em;
+		}
+	}
+
+	&__text {
+		padding-top: 20px;
+		grid-column-start: 2;
+		grid-row-start: 2;
+	}
+}

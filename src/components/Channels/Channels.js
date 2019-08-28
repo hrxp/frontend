@@ -1,37 +1,49 @@
-import React, { Component } from 'react';
-import { fetchChannels } from '../../utils/fetcher';
+import React from "react";
+import { fetchChannels } from "../../utils/fetcher";
+import tempChannels from '../../utils/tempChannels';
 
-class Channels extends Component {
+class Channels extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       channels: [],
-      error: null
     };
   }
 
   componentDidMount() {
-    let channels = [];
-    fetchChannels().then(data => {
-      let dataFirstTen = data.slice(0, 10);
-      dataFirstTen.forEach(channel => channels.push(channel));
-    }).then(() => {
-        this.setState({ channels: channels });
-        this.props.changeChannel(channels[0])
-      }
-    )
+    let channels = [...tempChannels];
+    this.setState({ channels: channels });
+
+    if (!this.props.currentChannel) {
+      this.props.changeChannel(channels[0]);
+    }
+
+    // fetchChannels()
+    //   .then(data => {
+    //     data.forEach(channel => channels.push(channel.name));
+    //   })
+    //   .then(() => this.setState({ channels: channels }));
+
+    // if (this.props.)
   }
+
+
 
   render() {
     return (
       <div className="channels">
         <h3 className="channels__header">Channels</h3>
         <div className="channels__list">
-          {!this.props.currentChannel || this.state.channels.map(channel => (
-            <button 
-              key={channel.id} 
-              className={`channels__portal ${this.props.currentChannel.name === channel.name ? 'channels__portal--focus' : ''}`} 
-              onClick={() => this.props.changeChannel(channel)} value={channel.name}
+          {this.state.channels.map(channel => (
+            <button
+              key={channel._id}
+              className={`channels__portal ${
+                this.props.currentChannel === channel
+                  ? "channels__portal--focus"
+                  : ""
+                }`}
+              onClick={() => this.props.changeChannel(channel)}
+              value={channel.name}
             >
               {`# ${channel.name}`}
             </button>

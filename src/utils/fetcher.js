@@ -1,10 +1,25 @@
-import axios from 'axios';
-const PORT = process.env.PORT || 3000;
+import axios from "axios";
+
+axios.interceptors.request.use(function(config) {
+  const token = localStorage.getItem("hrxp_jwt");
+  if (token) {
+    config.headers.common.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+axios.interceptors.response.use(null, function(error) {
+  if (error.response.status === 401) {
+    // API auth error
+    window.location.href = "/login";
+    console.warn("Unauthorized API call detected; redirecting to login");
+    return;
+  }
+
+  return error;
+});
 
 const fetchChannels = () => {
-  console.log(process.env)
-  console.log(process.env.PORT)
-  console.log(process.env.REACT_APP_API_BASE_URL)
   return axios
     .get(`${process.env.REACT_APP_API_BASE_URL}/channels`)
     .then(response => {

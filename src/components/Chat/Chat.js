@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { fetchChannelMessages } from '../../utils/fetcher';
 import { throwStatement } from '@babel/types';
+import Messages from '../Messages/Messages'
 
 class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: ['messege 1', 'message 2'],
       headerExpanded: false,
     }
   }
@@ -38,17 +38,12 @@ class Chat extends Component {
       <div className="chat">
         <div className="chat__header">
           <h1 className="chat__header__title">#{this.props.currentChannel.name}</h1>
-
           <p onClick={this.expandHeaderTopic.bind(this)} className="chat__header__topic">
             {topicDisplay}
           </p>
         </div>
         <div className="messages">
-          {
-            this.state.messages.map(message => {
-              return <div>{message}</div>;
-            })
-          }
+          <Messages currentChannel={this.props.currentChannel}/>
         </div>
       </div>
     )
