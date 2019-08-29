@@ -15,27 +15,28 @@ class Channels extends React.Component {
         channels: channels.sort((a, b) => b.members.length - a.members.length),
       })
     );
-    }
+  }
 
   render() {
     return (
       <div className="channels">
         <h3 className="channels__header">Channels</h3>
         <div className="channels__list">
-          {this.state.channels.map(channel => (
-            <button
-              key={channel._id}
-              className={`channels__portal ${
-                this.props.currentChannel === channel
-                  ? "channels__portal--focus"
-                  : ""
+          {this.state.channels &&
+            this.state.channels.map(channel => (
+              <button
+                key={channel._id}
+                className={`channels__portal ${
+                  this.props.currentChannel === channel
+                    ? "channels__portal--focus"
+                    : ""
                 }`}
-              onClick={() => this.props.changeChannel(channel)}
-              value={channel.name}
-            >
-              {`# ${channel.name}`}
-            </button>
-          ))}
+                onClick={() => this.props.changeChannel(channel)}
+                value={channel.name}
+              >
+                {`# ${channel.name}`}
+              </button>
+            ))}
         </div>
       </div>
     );
