@@ -8,10 +8,11 @@
 
 ## Environment variables
 
-| Name                              | Description                                               | Required? | Default                                    |
-|-----------------------------------|-----------------------------------------------------------|-----------|--------------------------------------------|
-| `REACT_APP_SLACK_LOGIN_CLIENT_ID` | Client ID that will be used for "Sign in with Slack" flow | No        | `671720357619.724476729541`                |
-| `REACT_APP_API_BASE_URL`          | Base URL for the HRXP API                                 | No        | `https://hrx-portal-api-dev.herokuapp.com` |
+| Name                              | Description                                                       | Required? | Default                                    |
+|-----------------------------------|-------------------------------------------------------------------|-----------|--------------------------------------------|
+| `REACT_APP_SLACK_LOGIN_CLIENT_ID` | Client ID that will be used for "Sign in with Slack" flow         | No        | `671720357619.724476729541`                |
+| `REACT_APP_SLACK_LOGIN_TEAM`      | Slack team subdomain that will be redirected to during login flow | No        | `hackreactorx`                             |
+| `REACT_APP_API_BASE_URL`          | Base URL for the HRXP API                                         | No        | `https://hrx-portal-api-dev.herokuapp.com` |
 
 Environment variables are handled by [Create React App's `.env` implementation](https://create-react-app.dev/docs/adding-custom-environment-variables).
 

@@ -1,12 +1,13 @@
 import React from "react";
 
+const SLACK_LOGIN_TEAM =
+  process.env.REACT_APP_SLACK_LOGIN_TEAM || "hackreactorx";
 const Login = props => {
   return (
-    <div className={`login ${props.loggedIn ? "login--slide" : ""}`}>
-      <div className="login__container">
-        <h1 className="login__header">Welcome to HRX</h1>
+    <div className="login-container">
+      <div className="login">
         <a
-          href={`https://hackreactorx.slack.com/oauth/authorize?scope=identity.basic%20identity.avatar%20identity.email%20identity.team&client_id=${process.env.REACT_APP_SLACK_LOGIN_CLIENT_ID}`}
+          href={`https://${SLACK_LOGIN_TEAM}.slack.com/oauth/authorize?scope=identity.basic%20identity.avatar%20identity.email%20identity.team&client_id=${process.env.REACT_APP_SLACK_LOGIN_CLIENT_ID}&redirect_url=${window.location.origin}/slack/oauth/redirect`}
         >
           <img src="https://api.slack.com/img/sign_in_with_slack.png" />
         </a>
