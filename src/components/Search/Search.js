@@ -1,7 +1,9 @@
 import React from 'react';
 import SearchBox from './SearchBox.js';
 import { fetchChannels, fetchChannelMessages } from "../../utils/fetcher"
+// import tempChannels from '../../utils/tempChannels'
 import axios from 'axios';
+import tempMsgs from '../../utils/tempMsgs';
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,9 @@ class Search extends React.Component {
       input: '',
       menu: 'Messages',
       searched: [],
-      hasMore: true
+      hasMore: true,
+      currentChannel: 'test',
+      open: false
     }
 
     // this.handleSearch = this.handleSearch.bind(this);
@@ -28,70 +32,92 @@ class Search extends React.Component {
       }
     };
 
+    // this.onSearchClick = e => {
+    //   if (document.getElementById('searchresults').contains(e.target)) {
+    //     document.getElementById('searchresults').style.display = 'visible'
+    //   } else {
+    //     document.getElementById('searchresults').style.display = 'none'
+    //   }
+    // }
+
+    setTimeout(() => this.setState({ currentChannel: this.props.currentChannel }), 50)
     window.addEventListener('keydown', this.onKeyDown);
+    // window.addEventListener('click', this.onSearchClick)
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.onKeyDown);
+    // window.removeEventListener('click', this.onSearchClick)
   }
 
 
   handleChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({ input: e.target.value });
   };
 
-  async search(channelName) {
-    if (!this.searchTerm) return;
-    const channels = await this.fetch('/search/' + this.input + (channelName ? '?channel=' + channelName : ''));
-    channels.forEach(c => c.type = 'search');
-    this.scrollPos = 0;
-    this.display = channels;
-  }
+  // async search(channelName) {
+  //   if (!this.searchTerm) return;
+  //   const channels = await this.fetch('/search/' + this.input + (channelName ? '?channel=' + channelName : ''));
+  //   channels.forEach(c => c.type = 'search');
+  //   this.scrollPos = 0;
+  //   this.display = channels;
+  // }
 
-  async fetch(url, isText) {
-    this.isLoading = true;
+  // async fetch(url, isText) {
+  //   this.isLoading = true;
 
-    try {
-      const res = await fetch(url).then(n => isText ? n.text() : n.json());
-      this.isLoading = false;
-      return res;
+  //   try {
+  //     const res = await fetch(url).then(n => isText ? n.text() : n.json());
+  //     this.isLoading = false;
+  //     return res;
 
-    } catch (e) {
-      this.isLoading = false;
-      this.alert(e.message);
-      throw e;
-    }
-  }
+  //   } catch (e) {
+  //     this.isLoading = false;
+  //     this.alert(e.message);
+  //     throw e;
+  //   }
+  // }
 
   handleSearch = (e) => {
     let word = this.state.input;
+    console.log(word)
+    let results = []
+    tempMsgs.forEach(msg => {
+      if (msg.channelName === this.props.currentChannel.name) {
+        if (msg.text.includes(word)) {
+          results.push(msg)
+        }
+      }
+    })
+    console.log(results)
+    return this.setState({ searched: results, open: true })
 
-    const fetchChannels = () => {
-      return axios
-        .get(`${process.env.REACT_APP_API_BASE_URL}/channels`)
-        .then(response => {
-          console.log('success');
-          return response.data;
-        })
-        .catch(error => {
-          console.log(error, "Fetch channels failed!");
-        });
-    };
+    // const fetchChannels = () => {
+    //   return axios
+    //     .get(`${process.env.REACT_APP_API_BASE_URL}/channels`)
+    //     .then(response => {
+    //       console.log('success');
+    //       return response.data;
+    //     })
+    //     .catch(error => {
+    //       console.log(error, "Fetch channels failed!");
+    //     });
+    // };
 
-    const fetchChannelMessages = channelName => {
-      return axios
-        .get(
-          `${process.env.REACT_APP_API_BASE_URL}/channels/${channelName}/messages`
-        )
-        .then(response => {
-          console.log(response, "Fetch messages success!");
-          return response.data;
-        })
-        .catch(error => {
-          console.log(error, "Fetch messages failed!");
-        });
-    };
+    // const fetchChannelMessages = channelName => {
+    //   return axios
+    //     .get(
+    //       `${process.env.REACT_APP_API_BASE_URL}/channels/${channelName}/messages`
+    //     )
+    //     .then(response => {
+    //       console.log(response, "Fetch messages success!");
+    //       return response.data;
+    //     })
+    //     .catch(error => {
+    //       console.log(error, "Fetch messages failed!");
+    //     });
+    // };
 
 
     // axios
@@ -109,7 +135,7 @@ class Search extends React.Component {
     //   .catch(err => {
     //     console.error(err);
     //   })
-    fetchChannels();
+    // console.log(fetchChannels());
   }
 
   // openSearchBox() {
@@ -137,7 +163,7 @@ class Search extends React.Component {
           menu={this.state.menu}
           hasMore={this.state.hasMore}
           searched={this.state.searched}
-
+          open={this.state.open}
         />
       </div>
     )
