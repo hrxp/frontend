@@ -42,7 +42,9 @@ class Chat extends Component {
               {topicDisplay}
             </p>
           </div>
-          <div className="chat__header__logo"><img className="chat__header__logo--size" src="https://static1.squarespace.com/static/ta/522a22cbe4b04681b0bff826/3242/assets/images/logo/HR_at_Galvanize_Stacked.png" alt="Hack Reactor logo" /></div>
+          <div className="chat__header__logo">
+            <img className="chat__header__logo--size" src="https://static1.squarespace.com/static/ta/522a22cbe4b04681b0bff826/3242/assets/images/logo/HR_at_Galvanize_Stacked.png" alt="Hack Reactor logo" />
+          </div>
         </div>
         <div className="messages">
           <Messages currentChannel={this.props.currentChannel} />

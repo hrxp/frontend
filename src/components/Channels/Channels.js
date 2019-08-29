@@ -23,6 +23,8 @@ class Channels extends React.Component {
     //     data.forEach(channel => channels.push(channel.name));
     //   })
     //   .then(() => this.setState({ channels: channels }));
+
+    // if (this.props.)
   }
 
 
