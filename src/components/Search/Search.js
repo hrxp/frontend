@@ -32,17 +32,10 @@ class Search extends React.Component {
       }
     };
 
-    // this.onSearchClick = e => {
-    //   if (document.getElementById('searchresults').contains(e.target)) {
-    //     document.getElementById('searchresults').style.display = 'visible'
-    //   } else {
-    //     document.getElementById('searchresults').style.display = 'none'
-    //   }
-    // }
+    
 
     setTimeout(() => this.setState({ currentChannel: this.props.currentChannel }), 50)
     window.addEventListener('keydown', this.onKeyDown);
-    // window.addEventListener('click', this.onSearchClick)
   }
 
   componentWillUnmount() {
@@ -81,7 +74,6 @@ class Search extends React.Component {
 
   handleSearch = (e) => {
     let word = this.state.input;
-    console.log(word)
     let results = []
     tempMsgs.forEach(msg => {
       if (msg.channelName === this.props.currentChannel.name) {
@@ -90,7 +82,17 @@ class Search extends React.Component {
         }
       }
     })
-    console.log(results)
+
+    this.onSearchClick = e => {
+      if (document.getElementById('searchresults').contains(e.target)) {
+        document.getElementById('searchresults').style.display = 'visible'
+      } else {
+        document.getElementById('searchresults').style.display = 'none'
+      }
+    }
+
+    window.addEventListener('click', this.onSearchClick)
+
     return this.setState({ searched: results, open: true })
 
     // const fetchChannels = () => {
