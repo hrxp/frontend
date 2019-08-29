@@ -6,7 +6,7 @@ class Messages extends React.Component {
   constructor({ props }) {
     super(props);
     this.state = {
-      messages: []
+      messages: [],
     };
   }
 
@@ -25,7 +25,7 @@ class Messages extends React.Component {
       return fetchChannelMessages(this.props.currentChannel.name).then(
         messages => this.setState({ messages: messages })
       );
-      }
+    }
   };
 
   render() {
@@ -33,11 +33,11 @@ class Messages extends React.Component {
       <React.Fragment>
         {this.state.messages.map((message, i) => {
           // currently just mapping first 10 messages for a quicker fetch
-          if (i <= 20) {
+          if (i <= 100) {
             return (
               <div key={message._id} className="message">
-               <Message message={message} />
-             </div>
+                <Message message={message} />
+              </div>
             );
           }
         })}
