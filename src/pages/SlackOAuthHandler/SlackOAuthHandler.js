@@ -25,6 +25,12 @@ export default class SlackOAuthHandler extends React.Component {
   }
 
   render() {
-    return <h3>Exchanging your Slack login for an access token...</h3>;
+    return (
+      <div className="login-container">
+        <div className="login">
+          <h3>Exchanging your Slack login for an access token...</h3>
+        </div>
+      </div>
+    );
   }
 }
