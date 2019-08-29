@@ -1,6 +1,5 @@
 import React from "react";
 import { fetchChannels } from "../../utils/fetcher";
-import tempChannels from '../../utils/tempChannels';
 
 class Channels extends React.Component {
   constructor(props) {
@@ -11,23 +10,12 @@ class Channels extends React.Component {
   }
 
   componentDidMount() {
-    let channels = [...tempChannels];
-    this.setState({ channels: channels });
-
-    if (!this.props.currentChannel) {
-      this.props.changeChannel(channels[0]);
+    fetchChannels().then(channels =>
+      this.setState({
+        channels: channels.sort((a, b) => b.members.length - a.members.length),
+      })
+    );
     }
-
-    // fetchChannels()
-    //   .then(data => {
-    //     data.forEach(channel => channels.push(channel.name));
-    //   })
-    //   .then(() => this.setState({ channels: channels }));
-
-    // if (this.props.)
-  }
-
-
 
   render() {
     return (
