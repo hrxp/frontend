@@ -11,8 +11,9 @@ class Messages extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     return this.loadMessages();
+
   }
 
   componentDidUpdate(prevProps) {
@@ -24,7 +25,18 @@ class Messages extends React.Component {
   loadMessages = async () => {
     let messages = [];
 
-    const res = await fetchChannels('general');
+    // const res = await fetchChannelMessages(this.props.channel);
+    // console.log('res: ', res);
+
+    const res = await fetchChannelMessages(this.props.channel);
+    // console.log('res: ', res);
+    await res.forEach(message => messages.push(message));
+    this.setState({ messages: [...messages] });
+    // .then(data => {
+    //   data.forEach(message => messages.push(message));
+    // })
+    // .then(() => this.setState({ messages: messages }));
+
     // console.log('res: ', res);
     // tempMsgs.forEach(msg => {
     //   if (msg.channelName === this.props.channel) {

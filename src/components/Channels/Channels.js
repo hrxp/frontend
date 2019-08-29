@@ -19,12 +19,6 @@ class Channels extends React.Component {
     })
 
     return this.setState({ channels: [...results] });
-
-    // fetchChannels()
-    //   .then(data => {
-    //     data.forEach(channel => channels.push(channel.name));
-    //   })
-    //   .then(() => this.setState({ channels: channels }));
   }
 
   render() {

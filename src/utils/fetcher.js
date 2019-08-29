@@ -31,6 +31,7 @@ const fetchChannels = () => {
     });
 };
 
+
 const fetchChannelMessages = channelName => {
   return axios
     .get(
