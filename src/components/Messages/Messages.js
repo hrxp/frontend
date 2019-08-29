@@ -1,5 +1,5 @@
 import React from "react";
-import { fetchChannelMessages } from "../../utils/fetcher";
+import { fetchChannelMessages, fetchChannels } from "../../utils/fetcher";
 import Message from "../Message/Message";
 import tempMsgs from '../../utils/tempMsgs';
 
@@ -21,7 +21,7 @@ class Messages extends React.Component {
     }
   }
 
-  loadMessages = () => {
+  loadMessages = async () => {
     let messages = [];
     tempMsgs.forEach(msg => {
       if (msg.channelName === this.props.currentChannel.name) {
