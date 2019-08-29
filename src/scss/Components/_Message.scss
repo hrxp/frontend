@@ -1,32 +1,38 @@
 .message {
 	display: grid;
-	grid-template-columns: 10% 90%;
-	grid-template-rows: 10% 90%;
-	// border-bottom: 2px solid rgba(grey, 0.2);
-	padding: 10px;
+	grid-template-columns: 45px auto;
+	grid-template-rows: 25px auto;
+	margin: 20px;
 	&:hover {
 		background-color: rgb(240, 240, 240);
 	}
 	&__photo {
 		grid-column-start: 1;
-		width: 42px;
-		height: 42px;
+		width: 35px;
+		height: 35px;
+		border-radius: 5px;
 	}
 	&__info {
 		display: flex;
+		padding-top: 1px;
 		&__user {
 			font-weight: bold;
+			font-size: 1.2em;
 		}
 		&__time {
+			margin-top: 4px;
 			margin-left: 10px;
 			color: grey;
-			font-size: .75em;
+			font-size: .85em;
 		}
 	}
 
 	&__text {
-		padding-top: 20px;
 		grid-column-start: 2;
 		grid-row-start: 2;
+		float: left;
+		font-family: 'Open Sans', sans-serif;
+		color: rgb(90, 90, 90);
+		max-width: 900px;
 	}
 }
