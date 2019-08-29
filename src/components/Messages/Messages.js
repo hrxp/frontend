@@ -6,7 +6,8 @@ class Messages extends React.Component {
   constructor({ props }) {
     super(props);
     this.state = {
-      messages: []
+      messages: [],
+      loadingStatus: "INITIAL",
     };
   }
 
@@ -22,15 +23,25 @@ class Messages extends React.Component {
 
   loadMessages = () => {
     if (this.props.currentChannel && this.props.currentChannel.name) {
-      return fetchChannelMessages(this.props.currentChannel.name).then(
-        messages => this.setState({ messages: messages })
-      );
+      this.setState({ loadingStatus: "LOADING" });
+      return fetchChannelMessages(this.props.currentChannel.name)
+        .then(messages => {
+          return this.setState({
+            loadingStatus: "SUCCESS",
+            messages: messages,
+          });
+        })
+        .catch(e => {
+          console.error(e);
+          this.setState({ loadingStatus: "ERROR" });
+        });
       }
   };
 
   render() {
+    if (this.state.loadingStatus === "SUCCESS") {
     return (
-      <React.Fragment>
+        <div className="messages">
         {this.state.messages.map((message, i) => {
           // currently just mapping first 10 messages for a quicker fetch
           if (i <= 20) {
@@ -41,8 +52,23 @@ class Messages extends React.Component {
             );
           }
         })}
-      </React.Fragment>
+        </div>
+      );
+    } else if (this.state.loadingStatus === "LOADING") {
+      return (
+        <div className="messages--loading">
+          <div className="lds-dual-ring" />
+        </div>
+      );
+    } else if (this.state.loadingStatus === "ERROR") {
+      return (
+        <div className="messages--error">
+          <p>We encountered an error while trying to load these messages.</p>
+        </div>
     );
+  }
+
+    return null;
   }
 }
 export default Messages;
