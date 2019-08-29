@@ -2,11 +2,30 @@
 	display: inline-block;
 	width: 100%;
 	&__header {
-		padding: 1em 1em;
-	  border-bottom: 2px solid rgba(grey, 0.2);
-	&__topic {
-			color: rgba(black, 0.4);
-			height: 1em;
+		padding: 5px 20px;
+		border-bottom: 2px solid rgba(grey, 0.2);
+		&__container {
+			display: inline-block;
+		}
+		&__title {
+			font-size: 2em;
+			font-weight: bold;
+		}
+		&__topic {
+			color: rgba(black, 0.5);
+			font-size: 1em;
+			margin: 5px;
+		}
+		&__logo {
+			padding: 5px;
+			display: inline-block;
+			height: 60px;
+			width: 240px;
+			float: right;
+			&--size {
+				height: 100%;
+				width: 100%;
+			}
 		}
 	}
 }

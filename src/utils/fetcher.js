@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.interceptors.request.use(function(config) {
+axios.interceptors.request.use(function (config) {
   const token = localStorage.getItem("hrxp_jwt");
   if (token) {
     config.headers.common.Authorization = `Bearer ${token}`;
@@ -8,7 +8,7 @@ axios.interceptors.request.use(function(config) {
   return config;
 });
 
-axios.interceptors.response.use(null, function(error) {
+axios.interceptors.response.use(null, function (error) {
   if (error.response.status === 401) {
     // API auth error
     window.location.href = "/login";

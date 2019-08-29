@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { fetchChannelMessages } from '../../utils/fetcher';
-import { throwStatement } from '@babel/types';
 import Messages from '../Messages/Messages'
 
 class Chat extends Component {
@@ -37,13 +36,18 @@ class Chat extends Component {
     return (
       <div className="chat">
         <div className="chat__header">
-          <h1 className="chat__header__title">#{this.props.currentChannel.name}</h1>
-          <p onClick={this.expandHeaderTopic.bind(this)} className="chat__header__topic">
-            {topicDisplay}
-          </p>
+          <div className="chat__header__container">
+            <div className="chat__header__title">#{this.props.currentChannel.name}</div>
+            <p onClick={this.expandHeaderTopic.bind(this)} className="chat__header__topic">
+              {topicDisplay}
+            </p>
+          </div>
+          <div className="chat__header__logo">
+            <img className="chat__header__logo--size" src="https://static1.squarespace.com/static/ta/522a22cbe4b04681b0bff826/3242/assets/images/logo/HR_at_Galvanize_Stacked.png" alt="Hack Reactor logo" />
+          </div>
         </div>
         <div className="messages">
-          <Messages currentChannel={this.props.currentChannel}/>
+          <Messages currentChannel={this.props.currentChannel} />
         </div>
       </div>
     )
