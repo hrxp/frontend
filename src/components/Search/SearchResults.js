@@ -3,7 +3,6 @@ import React from 'react'
 const SearchResults = (props) => {
   const { displayName, profilePhoto } = props.msg.createdBy;
   const { ts, text } = props.msg;
-  console.log('text', text)
   return (
     <div className='searchresults' 
       style={{ 
