@@ -3,6 +3,7 @@ import React from 'react'
 const SearchResults = (props) => {
   const { displayName, profilePhoto } = props.msg.createdBy;
   const { ts, text } = props.msg;
+  console.log('text', text)
   return (
     <div className='searchresults' 
       style={{ 
@@ -19,7 +20,7 @@ const SearchResults = (props) => {
           <div className="message__info__user">{displayName} </div>
           <div className="message__info__time">{ts}</div>
         </div>
-        <div className="message__text">Msg: {text}</div>
+        <div className="search__text">{text}</div>
       
     </div>
   )
