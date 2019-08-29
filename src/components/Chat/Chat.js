@@ -6,7 +6,7 @@ const Chat = ({ channel }) => {
   return (
     <Fragment>
       <div>
-        <Search style={{ border: 'red 1 solid' }} />
+        <Search />
       </div>
       <div>
         <Messages channel={channel} />
