@@ -1,5 +1,5 @@
 import React from 'react';
-import InfiniteScroll from 'react-infinite-scroller';
+// import InfiniteScroll from 'react-infinite-scroller';
 
 const SearchBox = (props) => {
   let loader = <div className="loader" key={0}>Loading...</div>

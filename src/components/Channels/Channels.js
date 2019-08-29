@@ -11,9 +11,14 @@ class Channels extends React.Component {
     };
   }
 
-  componentDidMount() {
-    let channels = [...tempChannels];
-    return this.setState({ channels: channels });
+  async componentDidMount() {
+    let results = [];
+    let channels = await fetchChannels();
+    channels.forEach(channel => {
+      results.push(channel.name);
+    })
+
+    return this.setState({ channels: [...results] });
 
     // fetchChannels()
     //   .then(data => {
