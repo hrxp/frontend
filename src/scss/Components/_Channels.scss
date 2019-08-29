@@ -1,10 +1,15 @@
 .channels {
   background-color: inherit;
-  height: 85%;
+  max-height: 85%;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+  }
 
   &__header {
     background-color: inherit;
-    color: rgba($color-white, 0.5);
+    color: rgba($color-white, 1);
   }
 
   &__list {
@@ -13,7 +18,7 @@
 
   &__portal {
     background-color: inherit;
-    color: rgba($color-white, 0.5);
+    color: rgba($color-white, 0.55);
     display: block;
     border: none;
     font-size: 0.75em;

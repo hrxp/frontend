@@ -1,25 +1,26 @@
 .sidebar {
-	display: inline-block;
-	background-color: $color-primary;
-	width: 16em;
-	height: 100vh;
-	padding: 1em;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 20px;
+  display: inline-block;
+  background-color: $color-primary;
+  min-width: 14em;
+  max-width: 18em;
+  max-height: 100vh;
+  overflow-x: hidden;
+  padding: 0px 1em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
 
-	&__header {
-		margin: 0 0 1em;
-		background-color: inherit;
-		color: $color-white;
-	}
+  &__header {
+    margin: 0.75em 0;
+    background-color: inherit;
+    color: $color-white;
+  }
 
-	&__username {
-		height: 2em;
-		color: rgba($color-white, 0.5);
-	}
+  &__username {
+    height: 2em;
+    color: rgba($color-white, 0.5);
+  }
 }
 
 .login {
-	float: right;
+  float: right;
 }
-

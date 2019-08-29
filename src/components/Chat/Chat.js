@@ -7,14 +7,13 @@ class Chat extends Component {
     super(props);
     this.state = {
       headerExpanded: false,
+    };
     }
-  }
 
   componentDidMount() {
-    let messages = [];
-    fetchChannelMessages(this.props.currentChannel.id).then(data => {
-      messages.forEach(message => messages.push(message));
-    }).then(() => this.setState({ messages: messages }));
+    fetchChannelMessages(this.props.currentChannel.name).then(messages =>
+      this.setState({ messages: messages })
+    );
   }
 
   expandHeaderTopic() {
@@ -37,20 +36,31 @@ class Chat extends Component {
       <div className="chat">
         <div className="chat__header">
           <div className="chat__header__container">
-            <div className="chat__header__title">#{this.props.currentChannel.name}</div>
-            <p onClick={this.expandHeaderTopic.bind(this)} className="chat__header__topic">
+            <div className="chat__header__info">
+            <div className="chat__header__title">
+              #{this.props.currentChannel.name}
+            </div>
+            <p
+              onClick={this.expandHeaderTopic.bind(this)}
+              className="chat__header__topic"
+            >
               {topicDisplay}
             </p>
+            </div>
+            <div className="chat__header__logo">
+              <img
+                className="chat__header__logo--size"
+                src="https://static1.squarespace.com/static/ta/522a22cbe4b04681b0bff826/3242/assets/images/logo/HR_at_Galvanize_Stacked.png"
+                alt="Hack Reactor logo"
+              />
           </div>
-          <div className="chat__header__logo">
-            <img className="chat__header__logo--size" src="https://static1.squarespace.com/static/ta/522a22cbe4b04681b0bff826/3242/assets/images/logo/HR_at_Galvanize_Stacked.png" alt="Hack Reactor logo" />
           </div>
         </div>
         <div className="messages">
           <Messages currentChannel={this.props.currentChannel} />
         </div>
       </div>
-    )
+    );
   }
 }
 export default Chat;

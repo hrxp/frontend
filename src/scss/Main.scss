@@ -5,6 +5,7 @@
 // Abstracts
 @import "Abstracts/Mixins";
 @import "Abstracts/Variables";
+@import "Abstracts/Globals";
 
 // Components
 @import "Components/Home";
@@ -12,4 +13,4 @@
 @import "Components/Sidebar";
 @import "Components/Channels";
 @import "Components/Login";
-@import "Components/Message"
+@import "Components/Message";
