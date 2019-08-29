@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBox from './SearchBox.js';
 import { fetchChannels, fetchChannelMessages } from "../../utils/fetcher"
-
+import axios from 'axios';
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -67,30 +67,30 @@ class Search extends React.Component {
   handleSearch = (e) => {
     let word = this.state.input;
 
-    // const fetchChannels = () => {
-    //   return axios
-    //     .get(`${process.env.REACT_APP_API_BASE_URL}/channels`)
-    //     .then(response => {
-    //       return response.data;
-    //     })
-    //     .catch(error => {
-    //       console.log(error, "Fetch channels failed!");
-    //     });
-    // };
+    const fetchChannels = () => {
+      return axios
+        .get(`${process.env.REACT_APP_API_BASE_URL}/channels`)
+        .then(response => {
+          return response.data;
+        })
+        .catch(error => {
+          console.log(error, "Fetch channels failed!");
+        });
+    };
 
-    // const fetchChannelMessages = channelName => {
-    //   return axios
-    //     .get(
-    //       `${process.env.REACT_APP_API_BASE_URL}/channels/${channelName}/messages`
-    //     )
-    //     .then(response => {
-    //       console.log(response, "Fetch messages success!");
-    //       return response.data;
-    //     })
-    //     .catch(error => {
-    //       console.log(error, "Fetch messages failed!");
-    //     });
-    // };
+    const fetchChannelMessages = channelName => {
+      return axios
+        .get(
+          `${process.env.REACT_APP_API_BASE_URL}/channels/${channelName}/messages`
+        )
+        .then(response => {
+          console.log(response, "Fetch messages success!");
+          return response.data;
+        })
+        .catch(error => {
+          console.log(error, "Fetch messages failed!");
+        });
+    };
 
 
     // axios

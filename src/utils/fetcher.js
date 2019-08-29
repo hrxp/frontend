@@ -1,4 +1,5 @@
 import axios from "axios";
+require('dotenv').config();
 
 axios.interceptors.request.use(function (config) {
   const token = localStorage.getItem("hrxp_jwt");
