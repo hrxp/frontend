@@ -3,7 +3,7 @@ import { fromUnixTime, format } from "date-fns";
 // Note: do we want to display realName? or at least store it? Also, might have to refactor component to a class to handle user obj data states
 
 const Message = ({ message }) => {
-  const { displayName, profilePhoto } = message.createdBy;
+  const { displayName, profilePhoto } = message.createdBy || {};
   const { ts, text } = message;
   return (
     <React.Fragment>
