@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { fetchChannelMessages } from '../../utils/fetcher';
-import Messages from '../Messages/Messages'
+import React, { Component } from "react";
+import Messages from "../Messages/Messages";
 
 class Chat extends Component {
   constructor(props) {
@@ -56,10 +55,8 @@ class Chat extends Component {
           </div>
           </div>
         </div>
-        <div className="messages">
           <Messages currentChannel={this.props.currentChannel} />
         </div>
-      </div>
     );
   }
 }
