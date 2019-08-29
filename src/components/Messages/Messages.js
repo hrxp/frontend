@@ -35,10 +35,10 @@ class Messages extends React.Component {
           // currently just mapping first 10 messages for a quicker fetch
           if (i <= 20) {
             return (
-             <div key={message.createdBy._id} className='message'> 
+              <div key={message._id} className="message">
                <Message message={message} />
              </div>
-            )
+            );
           }
         })}
       </React.Fragment>
