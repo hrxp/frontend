@@ -20,7 +20,7 @@ class Channels extends React.Component {
   render() {
     return (
       <div className="channels">
-        <h3 className="channels__header">Channels</h3>
+        <h4 className="channels__header">Channels</h4>
         <div className="channels__list">
           {this.state.channels &&
             this.state.channels.map(channel => (
