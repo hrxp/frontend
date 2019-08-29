@@ -7,6 +7,7 @@ class Chat extends Component {
     super(props);
     this.state = {
       headerExpanded: false,
+    };
     }
 
   componentDidMount() {
@@ -35,8 +36,13 @@ class Chat extends Component {
       <div className="chat">
         <div className="chat__header">
           <div className="chat__header__container">
-            <div className="chat__header__title">#{this.props.currentChannel.name}</div>
-            <p onClick={this.expandHeaderTopic.bind(this)} className="chat__header__topic">
+            <div className="chat__header__title">
+              #{this.props.currentChannel.name}
+            </div>
+            <p
+              onClick={this.expandHeaderTopic.bind(this)}
+              className="chat__header__topic"
+            >
               {topicDisplay}
             </p>
             <div className="chat__header__logo">
@@ -47,12 +53,12 @@ class Chat extends Component {
               />
           </div>
           </div>
-        </div>
         <div className="messages">
           <Messages currentChannel={this.props.currentChannel} />
         </div>
       </div>
-    )
+      </div>
+    );
   }
 }
 export default Chat;
