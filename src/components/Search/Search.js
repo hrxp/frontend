@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBox from './SearchBox.js';
-import { fetchChannels, fetchChannelMessages } from '../../utils'
+import { fetchChannels, fetchChannelMessages } from "../../utils/fetcher"
 
 class Search extends React.Component {
   constructor(props) {
@@ -111,9 +111,9 @@ class Search extends React.Component {
     fetchChannels();
   }
 
-  openSearchBox() {
-    this.setState({ openSearchBox: true })
-  }
+  // openSearchBox() {
+  // this.setState({ openSearchBox: true })
+  // }
 
   render() {
     let searchBox;
@@ -129,13 +129,14 @@ class Search extends React.Component {
     // }
     return (
       <div className="searchbar">
-        <button id="searchbutton" onClick={this.openSearchBox} />
+        {/* <button id="searchbutton" onClick={this.openSearchBox} /> */}
         <SearchBox
           handleChange={this.handleChange}
           handleSearch={this.handleSearch}
           menu={this.state.menu}
           hasMore={this.state.hasMore}
           searched={this.state.searched}
+
         />
       </div>
     )
