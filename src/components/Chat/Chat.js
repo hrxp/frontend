@@ -10,12 +10,6 @@ class Chat extends Component {
     };
     }
 
-  componentDidMount() {
-    fetchChannelMessages(this.props.currentChannel.name).then(messages =>
-      this.setState({ messages: messages })
-    );
-  }
-
   expandHeaderTopic() {
     if (this.props.currentChannel.topic.length > 60) {
       this.setState({
