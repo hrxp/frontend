@@ -36,6 +36,7 @@ class Chat extends Component {
       <div className="chat">
         <div className="chat__header">
           <div className="chat__header__container">
+            <div className="chat__header__info">
             <div className="chat__header__title">
               #{this.props.currentChannel.name}
             </div>
@@ -45,6 +46,7 @@ class Chat extends Component {
             >
               {topicDisplay}
             </p>
+            </div>
             <div className="chat__header__logo">
               <img
                 className="chat__header__logo--size"
@@ -53,10 +55,10 @@ class Chat extends Component {
               />
           </div>
           </div>
+        </div>
         <div className="messages">
           <Messages currentChannel={this.props.currentChannel} />
         </div>
-      </div>
       </div>
     );
   }
