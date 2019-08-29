@@ -71,6 +71,7 @@ class Search extends React.Component {
       return axios
         .get(`${process.env.REACT_APP_API_BASE_URL}/channels`)
         .then(response => {
+          console.log('success');
           return response.data;
         })
         .catch(error => {

@@ -11,8 +11,9 @@ class Messages extends React.Component {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     return this.loadMessages();
+
   }
 
   componentDidUpdate(prevProps) {
