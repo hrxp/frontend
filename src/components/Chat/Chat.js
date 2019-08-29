@@ -9,13 +9,11 @@ class Chat extends Component {
     this.state = {
       headerExpanded: false,
     }
-  }
 
   componentDidMount() {
-    let messages = [];
-    fetchChannelMessages(this.props.currentChannel.id).then(data => {
-      messages.forEach(message => messages.push(message));
-    }).then(() => this.setState({ messages: messages }));
+    fetchChannelMessages(this.props.currentChannel.name).then(messages =>
+      this.setState({ messages: messages })
+    );
   }
 
   expandHeaderTopic() {
