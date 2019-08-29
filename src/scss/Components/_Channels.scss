@@ -1,6 +1,11 @@
 .channels {
   background-color: inherit;
-  height: 85%;
+  max-height: 88%;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+  }
 
   &__header {
     background-color: inherit;
