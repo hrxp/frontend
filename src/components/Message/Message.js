@@ -7,9 +7,9 @@ const Message = ({ message }) => {
   const { ts, text } = message;
   return (
     <React.Fragment>
-      <img src={profilePhoto} 
-         className="message__photo"
-         alt="pfp"
+      <img src={'https://ca.slack-edge.com/T035Z8YSZ-U5B80B8K1-51f824babcc1-72'}
+        className="message__photo"
+        alt="pfp"
       />
       <div className="message__info">
         <div className="message__info__user">{displayName} </div>
