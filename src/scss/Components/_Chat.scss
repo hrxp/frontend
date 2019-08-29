@@ -6,7 +6,8 @@
     padding: 5px 20px;
     border-bottom: 2px solid rgba(grey, 0.2);
     &__container {
-      display: inline-block;
+      display: flex;
+      justify-content: space-between;
     }
     &__title {
       font-size: 2em;
