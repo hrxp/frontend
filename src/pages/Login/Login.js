@@ -1,7 +1,7 @@
 import React from "react";
 
 const SLACK_LOGIN_TEAM =
-  process.env.REACT_APP_SLACK_LOGIN_TEAM || "hackreactorx";
+  process.env.REACT_APP_SLACK_LOGIN_TEAM || "hrxapprentice-kgb8552";
 const Login = props => {
   return (
     <div className="login-container">
