@@ -1,8 +1,11 @@
 .sidebar {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 14em;
   background-color: $color-primary;
-  min-width: 14em;
+  // min-width: 14em;
   max-width: 18em;
+  min-height: 100vh;
   max-height: 100vh;
   overflow-x: hidden;
   padding: 0px 1em;

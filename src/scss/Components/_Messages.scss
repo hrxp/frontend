@@ -1,3 +1,11 @@
+.messages {
+  display: flex;
+  flex-direction: column;
+  // overflow: scroll;
+  // overflow-x: hidden;
+  flex: 1;
+}
+
 .messages--loading {
   display: flex;
 

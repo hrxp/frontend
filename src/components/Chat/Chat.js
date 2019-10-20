@@ -52,7 +52,9 @@ class Chat extends Component {
             </div>
           </div>
         </div>
-        <Messages currentChannel={this.props.currentChannel} />
+        <div className="chat__main">
+          <Messages currentChannel={this.props.currentChannel} />
+        </div>
       </div>
     );
   }
